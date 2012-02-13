@@ -60,7 +60,7 @@ public class FileSortHelper {
 
     private abstract class FileComparator implements Comparator<FileInfo> {
 
-        @Override
+        
         public int compare(FileInfo object1, FileInfo object2) {
             if (object1.IsDir == object2.IsDir) {
                 return doCompare(object1, object2);

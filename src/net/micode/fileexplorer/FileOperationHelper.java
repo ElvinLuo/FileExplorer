@@ -73,7 +73,7 @@ public class FileOperationHelper {
 
         final String _path = path;
         asnycExecute(new Runnable() {
-            @Override
+            
             public void run() {
                 for (FileInfo f : mCurFileNameList) {
                     CopyFile(f, _path);
@@ -134,7 +134,7 @@ public class FileOperationHelper {
 
         final String _path = path;
         asnycExecute(new Runnable() {
-            @Override
+            
             public void run() {
                     for (FileInfo f : mCurFileNameList) {
                         MoveFile(f, _path);
@@ -209,7 +209,7 @@ public class FileOperationHelper {
     public boolean Delete(ArrayList<FileInfo> files) {
         copyFileList(files);
         asnycExecute(new Runnable() {
-            @Override
+            
             public void run() {
                 for (FileInfo f : mCurFileNameList) {
                     DeleteFile(f);

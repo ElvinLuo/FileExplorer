@@ -86,7 +86,7 @@ public class FileViewActivity extends Fragment implements IFileInteractionListen
             Log.v(LOG_TAG, "received broadcast:" + intent.toString());
             if (action.equals(Intent.ACTION_MEDIA_MOUNTED) || action.equals(Intent.ACTION_MEDIA_UNMOUNTED)) {
                 runOnUiThread(new Runnable() {
-                    @Override
+                    
                     public void run() {
                         updateUI();
                     }
@@ -209,7 +209,7 @@ public class FileViewActivity extends Fragment implements IFileInteractionListen
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-    @Override
+    
     public boolean onBack() {
         return !mBackspaceExit && mFileViewInteractionHub.onBackPressed();
     }
@@ -293,7 +293,7 @@ public class FileViewActivity extends Fragment implements IFileInteractionListen
         sortCurrentList(sort);
         showEmptyView(fileList.size() == 0);
         mFileListView.post(new Runnable() {
-            @Override
+            
             public void run() {
                 mFileListView.setSelection(pos);
             }
@@ -321,21 +321,21 @@ public class FileViewActivity extends Fragment implements IFileInteractionListen
             emptyView.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
-    @Override
+    
     public View getViewById(int id) {
         return mRootView.findViewById(id);
     }
 
-    @Override
+    
     public Context getContext() {
         return mActivity;
     }
 
-    @Override
+    
     public void onDataChanged() {
         runOnUiThread(new Runnable() {
 
-            @Override
+            
             public void run() {
                 mAdapter.notifyDataSetChanged();
             }
@@ -343,7 +343,7 @@ public class FileViewActivity extends Fragment implements IFileInteractionListen
         });
     }
 
-    @Override
+    
     public void onPick(FileInfo f) {
         try {
             Intent intent = Intent.parseUri(Uri.fromFile(new File(f.filePath)).toString(), 0);
@@ -355,17 +355,17 @@ public class FileViewActivity extends Fragment implements IFileInteractionListen
         }
     }
 
-    @Override
+    
     public boolean shouldShowOperationPane() {
         return true;
     }
 
-    @Override
+    
     public boolean onOperation(int id) {
         return false;
     }
 
-    @Override
+    
     public String getDisplayPath(String path) {
         String root = mFileViewInteractionHub.getRootPath();
 
@@ -382,7 +382,7 @@ public class FileViewActivity extends Fragment implements IFileInteractionListen
         return getString(R.string.sd_folder) + path;
     }
 
-    @Override
+    
     public String getRealPath(String displayPath) {
         String root = mFileViewInteractionHub.getRootPath();
         if (displayPath.equals(getString(R.string.sd_folder)))
@@ -395,12 +395,12 @@ public class FileViewActivity extends Fragment implements IFileInteractionListen
         return ret;
     }
 
-    @Override
+    
     public boolean onNavigation(String path) {
         return false;
     }
 
-    @Override
+    
     public boolean shouldHideMenu(int menu) {
         return false;
     }
@@ -426,12 +426,12 @@ public class FileViewActivity extends Fragment implements IFileInteractionListen
         mFileViewInteractionHub.startSelectFiles(callback);
     }
 
-    @Override
+    
     public FileIconHelper getFileIconHelper() {
         return mFileIconHelper;
     }
 
-    @Override
+    
     public FileInfo getItem(int pos) {
         if (pos < 0 || pos > mFileNameList.size() - 1)
             return null;
@@ -439,29 +439,29 @@ public class FileViewActivity extends Fragment implements IFileInteractionListen
         return mFileNameList.get(pos);
     }
 
-    @Override
+    
     public void sortCurrentList(FileSortHelper sort) {
         Collections.sort(mFileNameList, sort.getComparator());
         onDataChanged();
     }
 
-    @Override
+    
     public ArrayList<FileInfo> getAllFiles() {
         return mFileNameList;
     }
 
-    @Override
+    
     public void addSingleFile(FileInfo file) {
         mFileNameList.add(file);
         onDataChanged();
     }
 
-    @Override
+    
     public int getItemCount() {
         return mFileNameList.size();
     }
 
-    @Override
+    
     public void runOnUiThread(Runnable r) {
         mActivity.runOnUiThread(r);
     }

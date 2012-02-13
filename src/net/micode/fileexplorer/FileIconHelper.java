@@ -136,7 +136,7 @@ public class FileIconHelper implements IconLoadFinishListener {
             fileImage.setImageResource(R.drawable.file_icon_default);
     }
 
-    @Override
+    
     public void onIconLoadFinished(ImageView view) {
         ImageView frame = imageFrames.get(view);
         if (frame != null) {

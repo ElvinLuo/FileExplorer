@@ -75,8 +75,8 @@ public class FileExplorerTabActivity extends Activity {
 
     public interface IBackPressedListener {
         /**
-         * 处理back事件。
-         * @return True: 表示已经处理; False: 没有处理，让基类处理。
+         * 澶勭悊back浜嬩欢銆�
+         * @return True: 琛ㄧず宸茬粡澶勭悊; False: 娌℃湁澶勭悊锛岃鍩虹被澶勭悊銆�
          */
         boolean onBack();
     }
@@ -150,20 +150,20 @@ public class FileExplorerTabActivity extends Activity {
             return info.fragment;
         }
 
-        @Override
+        
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
         }
 
-        @Override
+        
         public void onPageSelected(int position) {
             mActionBar.setSelectedNavigationItem(position);
         }
 
-        @Override
+        
         public void onPageScrollStateChanged(int state) {
         }
 
-        @Override
+        
         public void onTabSelected(Tab tab, FragmentTransaction ft) {
             Object tag = tab.getTag();
             for (int i=0; i<mTabs.size(); i++) {
@@ -179,11 +179,11 @@ public class FileExplorerTabActivity extends Activity {
             }
         }
 
-        @Override
+        
         public void onTabUnselected(Tab tab, FragmentTransaction ft) {
         }
 
-        @Override
+        
         public void onTabReselected(Tab tab, FragmentTransaction ft) {
         }
     }

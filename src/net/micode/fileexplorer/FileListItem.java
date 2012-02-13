@@ -85,7 +85,7 @@ public class FileListItem extends LinearLayout {
 
     private OnClickListener checkClick = new OnClickListener() {
 
-        @Override
+        
         public void onClick(View v) {
             ImageView img = (ImageView) v.findViewById(R.id.file_checkbox);
             assert (img != null && img.getTag() != null);
@@ -120,7 +120,7 @@ public class FileListItem extends LinearLayout {
             mMenu.findItem(R.id.action_select_all).setVisible(!isSelectedAll);
         }
 
-        @Override
+        
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             MenuInflater inflater = ((Activity) mContext).getMenuInflater();
             mMenu = menu;
@@ -129,14 +129,14 @@ public class FileListItem extends LinearLayout {
             return true;
         }
 
-        @Override
+        
         public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
             mMenu.findItem(R.id.action_copy_path).setVisible(
                     mFileViewInteractionHub.getSelectedFileList().size() == 1);
             return true;
         }
 
-        @Override
+        
         public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
             switch(item.getItemId()) {
                 case R.id.action_delete:
@@ -174,7 +174,7 @@ public class FileListItem extends LinearLayout {
             return false;
         }
 
-        @Override
+        
         public void onDestroyActionMode(ActionMode mode) {
             mFileViewInteractionHub.clearSelection();
             ((FileExplorerTabActivity) mContext).setActionMode(null);

@@ -65,7 +65,7 @@ public class TextInputDialog extends AlertDialog {
         setView(mView);
         setButton(BUTTON_POSITIVE, mContext.getString(android.R.string.ok),
                 new DialogInterface.OnClickListener() {
-                    @Override
+                    
                     public void onClick(DialogInterface dialog, int which) {
                         if (which == BUTTON_POSITIVE) {
                             mInputText = mFolderName.getText().toString();

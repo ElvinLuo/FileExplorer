@@ -129,7 +129,7 @@ public class FileViewInteractionHub implements IOperationProgressListener {
     }
 
     // operation finish notification
-    @Override
+    
     public void onFinish() {
         if (progressDialog != null) {
             progressDialog.dismiss();
@@ -137,7 +137,7 @@ public class FileViewInteractionHub implements IOperationProgressListener {
         }
 
         mFileViewListener.runOnUiThread(new Runnable() {
-            @Override
+            
             public void run() {
                 showConfirmOperationBar(false);
                 clearSelection();
@@ -191,7 +191,7 @@ public class FileViewInteractionHub implements IOperationProgressListener {
     }
 
     private View.OnClickListener buttonClick = new View.OnClickListener() {
-        @Override
+        
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.button_operation_copy:
@@ -291,7 +291,7 @@ public class FileViewInteractionHub implements IOperationProgressListener {
 
     private OnClickListener navigationClick = new OnClickListener() {
 
-        @Override
+        
         public void onClick(View v) {
             String path = (String) v.getTag();
             assert (path != null);
@@ -365,7 +365,7 @@ public class FileViewInteractionHub implements IOperationProgressListener {
         TextInputDialog dialog = new TextInputDialog(mContext, mContext.getString(
                 R.string.operation_create_folder), mContext.getString(R.string.operation_create_folder_message),
                 mContext.getString(R.string.new_folder_name), new OnFinishListener() {
-                    @Override
+                    
                     public boolean onFinish(String text) {
                         return doCreateFolder(text);
                     }
@@ -518,7 +518,7 @@ public class FileViewInteractionHub implements IOperationProgressListener {
 
         TextInputDialog dialog = new TextInputDialog(mContext, mContext.getString(R.string.operation_rename),
                 mContext.getString(R.string.operation_rename_message), f.fileName, new OnFinishListener() {
-                    @Override
+                    
                     public boolean onFinish(String text) {
                         return doRename(f, text);
                     }
@@ -588,7 +588,7 @@ public class FileViewInteractionHub implements IOperationProgressListener {
                         clearSelection();
                     }
                 }).setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                    @Override
+                    
                     public void onClick(DialogInterface dialog, int which) {
                         clearSelection();
                     }
@@ -645,7 +645,7 @@ public class FileViewInteractionHub implements IOperationProgressListener {
 
     // context menu
     private OnCreateContextMenuListener mListViewContextMenuListener = new OnCreateContextMenuListener() {
-        @Override
+        
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
             if (isInSelection() || isMoveState())
                 return;
@@ -691,7 +691,7 @@ public class FileViewInteractionHub implements IOperationProgressListener {
         mFileListView.setLongClickable(true);
         mFileListView.setOnCreateContextMenuListener(mListViewContextMenuListener);
         mFileListView.setOnItemClickListener(new OnItemClickListener() {
-            @Override
+            
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 onListItemClick(parent, view, position, id);
             }
@@ -727,7 +727,7 @@ public class FileViewInteractionHub implements IOperationProgressListener {
 
     private OnMenuItemClickListener menuItemClick = new OnMenuItemClickListener() {
 
-        @Override
+        
         public boolean onMenuItemClick(MenuItem item) {
             AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
             mListViewContextMenuSelectedItem = info != null ? info.position : -1;
@@ -1031,7 +1031,7 @@ public class FileViewInteractionHub implements IOperationProgressListener {
                         : R.drawable.arrow_down);
     }
 
-    @Override
+    
     public void onFileChanged(String path) {
         notifyFileSystemChanged(path);
     }

@@ -53,7 +53,7 @@ public class IntentBuilder {
                     context.getString(R.string.dialog_type_image) };
             dialogBuilder.setItems(menuItemArray,
                     new DialogInterface.OnClickListener() {
-                        @Override
+                        
                         public void onClick(DialogInterface dialog, int which) {
                             String selectType = "*/*";
                             switch (which) {
